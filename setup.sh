@@ -14,7 +14,7 @@ nvm use v0.10.12
 
 # Install jshint to allow checking of JS code within emacs
 # http://jshint.com/
-npm install -g jshint
+#npm install -g jshint
 
 # Install rlwrap to provide libreadline features with node
 # See: http://nodejs.org/api/repl.html#repl_repl
@@ -22,9 +22,17 @@ sudo apt-get install -y rlwrap
 
 # Install emacs24
 # https://launchpad.net/~cassou/+archive/emacs
-sudo apt-add-repository -y ppa:cassou/emacs
-sudo apt-get update
-sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
+#sudo apt-add-repository -y ppa:cassou/emacs
+#sudo apt-get update
+#sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
+
+# Setup VIM
+git clone https://github.com/jesvs/dotvim ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
+cd $HOME/.vim
+git submodule init
+git submodule update
+cd $HOME
 
 # Install Heroku toolbelt
 # https://toolbelt.heroku.com/debian
@@ -35,9 +43,9 @@ cd $HOME
 if [ -d ./dotfiles/ ]; then
     mv dotfiles dotfiles.old
 fi
-if [ -d .emacs.d/ ]; then
-    mv .emacs.d .emacs.d~
-fi
+#if [ -d .emacs.d/ ]; then
+#    mv .emacs.d .emacs.d~
+#fi
 git clone https://github.com/startup-class/dotfiles.git
 ln -sb dotfiles/.screenrc .
 ln -sb dotfiles/.bash_profile .
